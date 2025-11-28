@@ -46,7 +46,6 @@ export default async function RootLayout({
 
   const linkMap = Object.fromEntries(links.map((link) => [link.slug, link]));
 
-  console.dir(linkMap);
   return (
     <StoryblokProvider>
       <html lang="nl" className={`${merriweather.variable} ${inter.variable}`}>
