@@ -33,7 +33,10 @@ export async function getStoryblokStory(
 
   try {
     const response = await fetch(
-      `https://api.storyblok.com/v2/cdn/stories/${slug}?version=${version}&token=${token}${params}`
+      `https://api.storyblok.com/v2/cdn/stories/${slug}?version=${version}&token=${token}${params}`,
+      {
+        next: { tags: ["storyblok"] },
+      }
     );
 
     if (!response.ok) {
@@ -59,7 +62,10 @@ export async function getStoryblokStories(folder: string) {
 
   try {
     const response = await fetch(
-      `https://api.storyblok.com/v2/cdn/stories?version=${version}&starts_with=${folder}&token=${token}`
+      `https://api.storyblok.com/v2/cdn/stories?version=${version}&starts_with=${folder}&token=${token}`,
+      {
+        next: { tags: ["storyblok"] },
+      }
     );
 
     if (!response.ok) {
@@ -100,6 +106,51 @@ export async function getStoryblokStoriesByFolder(
     }
 
     return response.json();
+  } catch (error) {
+    console.error("Storyblok API error:", error);
+    throw error;
+  }
+}
+
+export async function getAllStoryblokStories(excludeStartpage: boolean = true) {
+  const token = process.env.NEXT_PUBLIC_STORYBLOK_CONTENT_API_ACCESS_TOKEN;
+
+  if (!token) {
+    throw new Error("Storyblok access token not configured");
+  }
+
+  const version =
+    process.env.STORYBLOK_DRAFT === "true" ? "draft" : "published";
+
+  const filterQuery = excludeStartpage ? "&is_startpage=0" : "";
+  const allStories = [];
+  let page = 1;
+  let hasMore = true;
+
+  try {
+    while (hasMore) {
+      const response = await fetch(
+        `https://api.storyblok.com/v2/cdn/stories?version=${version}${filterQuery}&per_page=100&page=${page}&token=${token}`,
+        {
+          next: { tags: ["storyblok"] },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch stories");
+      }
+
+      const data = await response.json();
+      allStories.push(...(data.stories || []));
+
+      // Check if there are more pages
+      const total = data.total || 0;
+      const fetched = allStories.length;
+      hasMore = fetched < total;
+      page++;
+    }
+
+    return { stories: allStories };
   } catch (error) {
     console.error("Storyblok API error:", error);
     throw error;
