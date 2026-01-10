@@ -1,0 +1,72 @@
+[
+  {
+    "name": "media_page",
+    "display_name": "Media Page",
+    "description": "A page component for displaying photos, videos, and audio tracks in organized tabs",
+    "schema": {
+      "pageTitle": {
+        "type": "text",
+        "label": "Page Title",
+        "pos": 0
+      },
+      "pageDescription": {
+        "type": "textarea",
+        "label": "Page Description",
+        "pos": 1
+      },
+      "photos": {
+        "type": "bloks",
+        "label": "Photos",
+        "pos": 2
+      },
+      "videos": {
+        "type": "bloks",
+        "label": "Videos",
+        "pos": 3
+      },
+      "audioTracks": {
+        "type": "bloks",
+        "label": "Audio Tracks",
+        "pos": 4
+      }
+    },
+    "preview_field": "pageTitle",
+    "is_root": true,
+    "is_nestable": false
+  },
+  {
+    "name": "media_item",
+    "display_name": "Media Item",
+    "description": "Individual media item (photo, video, or audio track)",
+    "schema": {
+      "title": {
+        "type": "text",
+        "label": "Title",
+        "pos": 0
+      },
+      "url": {
+        "type": "asset",
+        "label": "Media File URL",
+        "pos": 1
+      },
+      "thumbnail": {
+        "type": "asset",
+        "label": "Thumbnail Image",
+        "pos": 2
+      },
+      "duration": {
+        "type": "text",
+        "label": "Duration",
+        "pos": 3
+      },
+      "album": {
+        "type": "text",
+        "label": "Album",
+        "pos": 4
+      }
+    },
+    "preview_field": "title",
+    "is_root": false,
+    "is_nestable": true
+  }
+]

@@ -1,0 +1,109 @@
+{
+  "name": "contact",
+  "display_name": "Contact Page",
+  "description": "Full contact page with form and contact information",
+  "created_at": "2025-12-10T00:00:00.000Z",
+  "updated_at": "2025-12-10T00:00:00.000Z",
+  "id": null,
+  "schema": {
+    "pageTitle": {
+      "type": "text",
+      "display_name": "Page Title",
+      "pos": 0,
+      "id": "contact-page-title",
+      "required": false
+    },
+    "pageDescription": {
+      "type": "textarea",
+      "display_name": "Page Description",
+      "pos": 1,
+      "id": "contact-page-description",
+      "required": false
+    },
+    "email": {
+      "type": "text",
+      "display_name": "Email Address",
+      "pos": 2,
+      "id": "contact-email",
+      "required": false
+    },
+    "phone": {
+      "type": "text",
+      "display_name": "Phone Number",
+      "pos": 3,
+      "id": "contact-phone",
+      "required": false
+    },
+    "street": {
+      "type": "text",
+      "display_name": "Street",
+      "pos": 4,
+      "id": "contact-street",
+      "required": false
+    },
+    "postalCode": {
+      "type": "text",
+      "display_name": "Postal Code",
+      "pos": 5,
+      "id": "contact-postal-code",
+      "required": false
+    },
+    "city": {
+      "type": "text",
+      "display_name": "City",
+      "pos": 6,
+      "id": "contact-city",
+      "required": false
+    },
+    "instagramUrl": {
+      "type": "text",
+      "display_name": "Instagram URL",
+      "pos": 7,
+      "id": "contact-instagram-url",
+      "required": false
+    },
+    "facebookUrl": {
+      "type": "text",
+      "display_name": "Facebook URL",
+      "pos": 8,
+      "id": "contact-facebook-url",
+      "required": false
+    },
+    "rehearsalDay": {
+      "type": "text",
+      "display_name": "Rehearsal Day",
+      "pos": 9,
+      "id": "contact-rehearsal-day",
+      "required": false
+    },
+    "rehearsalTime": {
+      "type": "text",
+      "display_name": "Rehearsal Time",
+      "pos": 10,
+      "id": "contact-rehearsal-time",
+      "required": false
+    },
+    "rehearsalLocation": {
+      "type": "text",
+      "display_name": "Rehearsal Location",
+      "pos": 11,
+      "id": "contact-rehearsal-location",
+      "required": false
+    }
+  },
+  "image": null,
+  "preview_field": "pageTitle",
+  "is_root": true,
+  "preview_tmpl": null,
+  "is_nestable": false,
+  "all_presets": [],
+  "preset_id": null,
+  "real_name": "contact",
+  "component_group_uuid": null,
+  "color": null,
+  "icon": null,
+  "internal_tags_list": [],
+  "internal_tag_ids": [],
+  "content_type_asset_preview": null,
+  "metadata": {}
+}

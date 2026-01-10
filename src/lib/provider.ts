@@ -5,6 +5,8 @@ import Text from "../components/flex/Text";
 import Teaser from "../components/flex/Teaser";
 import Cta from "../components/flex/Cta";
 import HeroPlain from "../components/flex/HeroPlain";
+import ContactPage from "../components/pages/ContactPage";
+import MediaPage from "../components/pages/MediaPage";
 
 const components = {
   page: Page,
@@ -13,6 +15,8 @@ const components = {
   text: Text,
   teaser: Teaser,
   cta: Cta,
+  contact: ContactPage,
+  media_page: MediaPage,
 };
 
 export const getStoryblokApi = () => {

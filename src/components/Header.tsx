@@ -38,7 +38,7 @@ export function Header({
                     href={item.link?.cached_url || "#"}
                     className="hover:underline transition-colors text-gray-700 hover:text-tertiary"
                   >
-                    {item.title}
+                    {item.label ?? item.title}
                   </Link>
                 ))}
               </div>

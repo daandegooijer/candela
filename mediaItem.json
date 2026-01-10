@@ -1,0 +1,33 @@
+{
+  "name": "mediaItem",
+  "display_name": "Media Item",
+  "created_at": "2024-12-10T00:00:00.000Z",
+  "updated_at": "2024-12-10T00:00:00.000Z",
+  "schema": {
+    "title": {
+      "type": "text",
+      "translatable": true,
+      "display_name": "Title"
+    },
+    "url": {
+      "type": "image",
+      "display_name": "Image/Video URL"
+    },
+    "thumbnail": {
+      "type": "image",
+      "display_name": "Video Thumbnail"
+    },
+    "duration": {
+      "type": "text",
+      "display_name": "Duration (format: MM:SS)"
+    },
+    "album": {
+      "type": "text",
+      "translatable": true,
+      "display_name": "Album/Category"
+    }
+  },
+  "preview_field": null,
+  "is_root": false,
+  "is_nestable": true
+}
