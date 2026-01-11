@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ConfigStoryblok, MenuLinkStoryblok } from "@/component-types-sb";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 export function Header({
   settings,

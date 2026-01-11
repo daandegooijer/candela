@@ -1,6 +1,11 @@
+import { storyblokEditable } from "@storyblok/react/rsc";
+
 const Cta = ({ blok }: { blok: CtaStoryblok }) => {
   return (
-    <div className="bg-linear-to-r from-tertiary to-[#004d8a] rounded-2xl p-12 text-white text-center">
+    <div
+      {...storyblokEditable(blok)}
+      className="bg-linear-to-r from-tertiary to-[#004d8a] rounded-2xl p-12 text-white text-center"
+    >
       <h2 className="text-3xl font-bold mb-4">
         Kom eens langs bij een repetitie
       </h2>

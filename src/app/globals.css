@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./view-transitions.css";
 
 :root {
   /* Updated color scheme to match Candela brand (blue #0052A3) with warm accents */

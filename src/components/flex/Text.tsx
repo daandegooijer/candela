@@ -1,5 +1,6 @@
 import { createElement } from "react";
 import RichText from "./RichText";
+import { storyblokEditable } from "@storyblok/react/rsc";
 
 const Text = ({ blok }: { blok: any }) => {
   const { title, content, centerText, showBackgroundColor } = blok;
@@ -17,7 +18,7 @@ const Text = ({ blok }: { blok: any }) => {
   const className = `${sizeMap[headingType] || sizeMap.h2} font-bold mb-6`;
 
   return (
-    <div className="container mx-auto py-16 px-4">
+    <div {...storyblokEditable(blok)} className="container mx-auto py-16 px-4">
       <div className="grid grid-cols-12 gap-6 mb-8">
         <div
           className={`col-span-12 xl:col-span-10 xl:col-start-2 ${

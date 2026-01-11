@@ -1,8 +1,11 @@
+import "./globals.css";
+
 import type React from "react";
 import { Merriweather, Inter } from "next/font/google";
-import "./globals.css";
+import { ViewTransitions } from "next-view-transitions";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { StoryblokBridge } from "../components/StoryblokBridge";
 import { getStoryblokStory } from "../lib/storyblok";
 import StoryblokProvider from "../components/StoryBlokProvider";
 
@@ -48,27 +51,33 @@ export default async function RootLayout({
 
   return (
     <StoryblokProvider>
-      <html lang="nl" className={`${merriweather.variable} ${inter.variable}`}>
-        <body className="font-sans bg-background text-foreground">
-          <Header
-            settings={story?.content}
-            headerMenu={story.content.header_menu.map((item) => ({
-              ...item,
-              title: linkMap[item.link.cached_url.replaceAll("/", "")]?.name,
-              url: item.link.cached_url,
-            }))}
-          />
-          <main>{children}</main>
-          <Footer
-            settings={story?.content}
-            footerMenu={story.content.footer_menu.map((item) => ({
-              ...item,
-              title: linkMap[item.link.cached_url]?.name,
-              url: item.link.cached_url,
-            }))}
-          />
-        </body>
-      </html>
+      <ViewTransitions>
+        <html
+          lang="nl"
+          className={`${merriweather.variable} ${inter.variable}`}
+        >
+          <body className="font-sans bg-background text-foreground">
+            <StoryblokBridge />
+            <Header
+              settings={story?.content}
+              headerMenu={story.content.header_menu.map((item) => ({
+                ...item,
+                title: linkMap[item.link.cached_url.replaceAll("/", "")]?.name,
+                url: item.link.cached_url,
+              }))}
+            />
+            <main>{children}</main>
+            <Footer
+              settings={story?.content}
+              footerMenu={story.content.footer_menu.map((item) => ({
+                ...item,
+                title: linkMap[item.link.cached_url]?.name,
+                url: item.link.cached_url,
+              }))}
+            />
+          </body>
+        </html>{" "}
+      </ViewTransitions>{" "}
     </StoryblokProvider>
   );
 }

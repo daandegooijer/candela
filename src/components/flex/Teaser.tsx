@@ -1,5 +1,7 @@
+import { storyblokEditable } from "@storyblok/react/rsc";
+
 const Teaser = ({ blok }: { blok: TeaserStoryblok }) => {
-  return <>teaser</>;
+  return <div {...storyblokEditable(blok)}></div>;
 };
 
 export default Teaser;

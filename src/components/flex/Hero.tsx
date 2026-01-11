@@ -1,10 +1,14 @@
 import { HeroStoryblok } from "@/component-types-sb";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
+import { storyblokEditable } from "@storyblok/react/rsc";
 
 const Hero = ({ blok }: { blok: HeroStoryblok }) => {
   return (
-    <div className="relative h-[800px] overflow-hidden">
+    <div
+      {...storyblokEditable(blok)}
+      className="relative h-[800px] overflow-hidden"
+    >
       <div className="absolute inset-0 bg-tertiary">
         {blok.image && (
           <Image

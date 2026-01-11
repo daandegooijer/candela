@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { ConfigStoryblok, MenuLinkStoryblok } from "@/component-types-sb";
 import Instagram from "./icons/Instagram";

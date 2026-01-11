@@ -1,5 +1,5 @@
 import { storyblokEditable } from "@storyblok/react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 const MenuLink = ({ blok }) => {
   return (
