@@ -7,6 +7,7 @@ import Cta from "../components/flex/Cta";
 import HeroPlain from "../components/flex/HeroPlain";
 import ContactPage from "../components/pages/ContactPage";
 import MediaPage from "../components/pages/MediaPage";
+import TextImage from "../components/flex/TextImage";
 
 const components = {
   page: Page,
@@ -17,6 +18,7 @@ const components = {
   cta: Cta,
   contact: ContactPage,
   media_page: MediaPage,
+  "text with image": TextImage,
 };
 
 export const getStoryblokApi = () => {
