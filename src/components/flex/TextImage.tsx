@@ -21,7 +21,7 @@ const TextImage = ({ blok }: { blok: any }) => {
   } font-bold mb-6`;
 
   const imageComponent = image?.filename && (
-    <div className="relative w-full h-96 md:h-full">
+    <div className="relative w-full h-96 md:h-full rounded-xl overflow-hidden">
       <Image
         src={image.filename}
         alt={image.alt || ""}
@@ -48,7 +48,10 @@ const TextImage = ({ blok }: { blok: any }) => {
   );
 
   return (
-    <div {...storyblokEditable(blok)}>
+    <div
+      className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+      {...storyblokEditable(blok)}
+    >
       <div className="container mx-auto py-16 px-4">
         <div className="grid grid-cols-12 gap-6">
           {mirror ? (
