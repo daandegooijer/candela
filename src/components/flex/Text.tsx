@@ -18,24 +18,29 @@ const Text = ({ blok }: { blok: any }) => {
   const className = `${sizeMap[headingType] || sizeMap.h2} font-bold mb-6`;
 
   return (
-    <div {...storyblokEditable(blok)} className="container mx-auto py-16 px-4">
-      <div className="grid grid-cols-12 gap-6 mb-8">
-        <div
-          className={`col-span-12 xl:col-span-10 xl:col-start-2 ${
-            centerText ? "text-center" : "text-left"
-          }`}
-        >
-          {title &&
-            (["h1", "h2", "h3", "h4", "h5", "h6"].includes(headingType) ? (
-              <div className="mb-8">
-                {createElement(headingType, { className }, title)}
-              </div>
-            ) : null)}
+    <div
+      className={showBackgroundColor ? "bg-primary-100" : ""}
+      {...storyblokEditable(blok)}
+    >
+      <div className="container mx-auto py-16 px-4">
+        <div className="grid grid-cols-12 gap-6 mb-8">
+          <div
+            className={`col-span-12 xl:col-span-10 xl:col-start-2 ${
+              centerText ? "text-center" : "text-left"
+            }`}
+          >
+            {title &&
+              (["h1", "h2", "h3", "h4", "h5", "h6"].includes(headingType) ? (
+                <div className="mb-8">
+                  {createElement(headingType, { className }, title)}
+                </div>
+              ) : null)}
 
-          <RichText
-            content={content}
-            className="prose text-lg text-gray-700 lg:max-w-3xl xl:max-w-4xl mx-auto leading-relaxed [&>p]:mb-8 *:prose-a:text-tertiary *:prose-a:hover:underline"
-          />
+            <RichText
+              content={content}
+              className="prose text-lg text-gray-700 lg:max-w-3xl xl:max-w-4xl mx-auto leading-relaxed [&>p]:mb-8 *:prose-a:text-tertiary *:prose-a:hover:underline"
+            />
+          </div>
         </div>
       </div>
     </div>
