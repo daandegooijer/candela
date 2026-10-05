@@ -143,6 +143,7 @@ export default function ContactPage({ blok }: ContactPageProps) {
                 >
                   <option value="">Kies een onderwerp</option>
                   <option value="lid-worden">Lid worden</option>
+                  <option value="oefenavonden">Opgave oefenavonden</option>
                   <option value="boeking">Boeking aanvragen</option>
                   <option value="algemene-vraag">Algemene vraag</option>
                   <option value="anders">Anders</option>

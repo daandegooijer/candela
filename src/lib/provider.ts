@@ -8,6 +8,7 @@ import HeroPlain from "../components/flex/HeroPlain";
 import ContactPage from "../components/pages/ContactPage";
 import MediaPage from "../components/pages/MediaPage";
 import TextImage from "../components/flex/TextImage";
+import SponsorsGrid from "../components/flex/SponsorsGrid";
 
 const components = {
   page: Page,
@@ -19,6 +20,7 @@ const components = {
   contact: ContactPage,
   media_page: MediaPage,
   "text with image": TextImage,
+  sponsors_grid: SponsorsGrid,
 };
 
 export const getStoryblokApi = () => {

@@ -67,14 +67,7 @@ export default async function RootLayout({
               }))}
             />
             <main>{children}</main>
-            <Footer
-              settings={story?.content}
-              footerMenu={story.content.footer_menu.map((item) => ({
-                ...item,
-                title: linkMap[item.link.cached_url]?.name,
-                url: item.link.cached_url,
-              }))}
-            />
+            <Footer settings={story?.content} />
           </body>
         </html>{" "}
       </ViewTransitions>{" "}

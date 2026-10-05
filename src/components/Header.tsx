@@ -63,6 +63,7 @@ export function Header({
                   <Link
                     key={item._uid}
                     href={item.link?.cached_url || "#"}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="block w-full text-left px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
                   >
                     {item.label}

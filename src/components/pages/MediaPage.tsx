@@ -5,6 +5,7 @@ import { useState } from "react";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import Image from "next/image";
 import HeroPlain from "../flex/HeroPlain";
+import GalleryProject from "../flex/GalleryProject";
 
 interface MediaItem {
   _uid: string;
@@ -15,11 +16,21 @@ interface MediaItem {
   album?: string;
 }
 
+interface GalleryProjectItem {
+  _uid: string;
+  title?: string;
+  text?: any;
+  photos?: { id: number; filename: string; alt?: string }[];
+}
+
+const MAX_GALLERY_PROJECTS = 10;
+
 interface MediaPageProps {
   blok: {
     _uid: string;
     pageTitle?: string;
     pageDescription?: string;
+    galleryProjects?: GalleryProjectItem[];
     photos?: MediaItem[];
     videos?: MediaItem[];
     audioTracks?: MediaItem[];
@@ -31,6 +42,10 @@ export default function MediaPage({ blok }: MediaPageProps) {
     "photos"
   );
 
+  const galleryProjects = (blok.galleryProjects || []).slice(
+    0,
+    MAX_GALLERY_PROJECTS
+  );
   const photos = blok.photos || [];
   const videos = blok.videos || [];
   const audioTracks = blok.audioTracks || [];
@@ -133,11 +148,14 @@ export default function MediaPage({ blok }: MediaPageProps) {
         }}
       />
 
-      {(photos.length > 0 || videos.length > 0 || audioTracks.length > 0) && (
+      {(galleryProjects.length > 0 ||
+        photos.length > 0 ||
+        videos.length > 0 ||
+        audioTracks.length > 0) && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           {/* Tabs */}
           <div className="flex gap-4 mb-8 border-b border-gray-200 flex-wrap">
-            {photos.length > 0 && (
+            {(galleryProjects.length > 0 || photos.length > 0) && (
               <button
                 onClick={() => setActiveTab("photos")}
                 className={`px-6 py-3 font-semibold transition-colors flex items-center gap-2 whitespace-nowrap ${
@@ -179,7 +197,17 @@ export default function MediaPage({ blok }: MediaPageProps) {
           </div>
 
           {/* Photos Tab */}
-          {activeTab === "photos" && photos.length > 0 && (
+          {activeTab === "photos" && galleryProjects.length > 0 && (
+            <div>
+              {galleryProjects.map((project) => (
+                <GalleryProject key={project._uid} blok={project} />
+              ))}
+            </div>
+          )}
+
+          {activeTab === "photos" &&
+            galleryProjects.length === 0 &&
+            photos.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {photos.map((photo) => (
                 <div

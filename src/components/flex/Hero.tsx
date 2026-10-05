@@ -33,7 +33,11 @@ const Hero = ({ blok }: { blok: HeroStoryblok }) => {
                 return (
                   <Link
                     key={index}
-                    href={`/${button.link?.cached_url}` || "/sluit-je-aan"}
+                    href={
+                      button.link?.cached_url
+                        ? `/${button.link.cached_url}`
+                        : "/sluit-je-aan"
+                    }
                     className="px-8 py-3 bg-white text-tertiary rounded-lg font-semibold hover:bg-tertiary hover:text-white transition-colors"
                   >
                     {button.label}
