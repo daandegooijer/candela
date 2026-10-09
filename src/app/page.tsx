@@ -5,6 +5,10 @@ import "../lib/provider"; // Ensure Storyblok is initialized
 import { generateSeoMetadata, SeoBlock } from "@/src/lib/seo";
 import { Metadata } from "next";
 
+// Revalidate on every request for immediate updates
+// Once webhooks are fully configured, this can be increased or removed
+export const revalidate = 0;
+
 export async function generateMetadata({ params }): Promise<Metadata> {
   const { story } = await fetchData();
 

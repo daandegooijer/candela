@@ -4,6 +4,10 @@ import { StoryblokStory } from "@storyblok/react/rsc";
 import { generateSeoMetadata } from "@/src/lib/seo";
 import { Metadata } from "next";
 
+// Revalidate on every request for immediate updates
+// Once webhooks are fully configured, this can be increased or removed
+export const revalidate = 0;
+
 export async function generateMetadata(): Promise<Metadata> {
   const { story } = await getStoryblokStory("contact");
 

@@ -142,10 +142,9 @@ export default function ContactPage({ blok }: ContactPageProps) {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tertiary focus:border-transparent outline-none transition-all"
                 >
                   <option value="">Kies een onderwerp</option>
-                  <option value="lid-worden">Lid worden</option>
-                  <option value="oefenavonden">Opgave oefenavonden</option>
-                  <option value="boeking">Boeking aanvragen</option>
                   <option value="algemene-vraag">Algemene vraag</option>
+                  <option value="boeking">Boeking aanvragen</option>
+                  <option value="oefenavonden">Opgave oefenavonden</option>
                   <option value="anders">Anders</option>
                 </select>
               </div>

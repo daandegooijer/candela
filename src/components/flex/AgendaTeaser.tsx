@@ -63,10 +63,12 @@ const AgendaTeaser = ({ blok }: AgendaTeaserProps) => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-200">
             {/* Date */}
-            <div className="flex items-center gap-3 text-gray-700">
-              <Calendar className="h-5 w-5 text-primary shrink-0" />
-              <span>{formattedDate}</span>
-            </div>
+            {formattedDate && (
+              <div className="flex items-center gap-3 text-gray-700">
+                <Calendar className="h-5 w-5 text-primary shrink-0" />
+                <span>{formattedDate}</span>
+              </div>
+            )}
 
             {/* Time */}
             {time && (
