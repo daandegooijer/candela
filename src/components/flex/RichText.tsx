@@ -14,18 +14,12 @@ export default function RichText({
   // Convert inline images
   const html = richTextResolver({
     optimizeImages: {
-      class: "img-responsive",
       loading: "lazy",
-      width: 800,
-      height: 600,
       srcset: [400, 800, 1200, 1600],
-      sizes: ["(max-width: 400px) 100vw", "50vw"],
+      sizes: ["(max-width: 600px) 100vw", "50vw"],
       filters: {
         format: "webp",
-        quality: 10,
-        grayscale: true,
-        blur: 10,
-        brightness: 10,
+        quality: 80,
       },
     },
   }).render(content);

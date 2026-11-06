@@ -1,8 +1,21 @@
 import { ConfigStoryblok } from "@/component-types-sb";
 import Image from "next/image";
+import { Link } from "next-view-transitions";
 import Container from "./Container";
 
-export function Footer({ settings }: { settings: ConfigStoryblok }) {
+interface SponsorLogo {
+  id: number;
+  filename: string;
+  alt?: string;
+}
+
+export function Footer({
+  settings,
+  sponsorLogos,
+}: {
+  settings: ConfigStoryblok;
+  sponsorLogos?: SponsorLogo[];
+}) {
   return (
     <footer className="bg-tertiary text-white">
       <Container classNames="py-24">
@@ -21,7 +34,25 @@ export function Footer({ settings }: { settings: ConfigStoryblok }) {
             <h3 className="font-serif text-xl font-bold mb-4">
               Gospelkoor Candela
             </h3>
-            <p className="text-white/80">{settings?.footerText}</p>
+            {sponsorLogos && sponsorLogos.length > 0 ? (
+              <Link
+                href="/sponsoring"
+                className="flex flex-wrap items-center justify-center md:justify-start gap-8"
+              >
+                {sponsorLogos.map((logo) => (
+                  <div key={logo.id} className="relative h-16 w-32">
+                    <Image
+                      src={logo.filename}
+                      alt={logo.alt || "Sponsor"}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
+              </Link>
+            ) : (
+              <p className="text-white/80">{settings?.footerText}</p>
+            )}
           </div>
         </div>
 

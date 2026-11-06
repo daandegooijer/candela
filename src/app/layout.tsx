@@ -49,6 +49,12 @@ export default async function RootLayout({
 
   const linkMap = Object.fromEntries(links.map((link) => [link.slug, link]));
 
+  const { story: sponsoringStory } = await getStoryblokStory("sponsoring");
+  const sponsorsGridBlock = sponsoringStory?.content?.body?.find(
+    (block) => block.component === "sponsors_grid"
+  );
+  const sponsorLogos = sponsorsGridBlock?.logos || [];
+
   return (
     <StoryblokProvider>
       <ViewTransitions>
@@ -67,7 +73,7 @@ export default async function RootLayout({
               }))}
             />
             <main>{children}</main>
-            <Footer settings={story?.content} />
+            <Footer settings={story?.content} sponsorLogos={sponsorLogos} />
           </body>
         </html>{" "}
       </ViewTransitions>{" "}

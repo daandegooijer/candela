@@ -31,7 +31,7 @@ const SponsorsGrid = ({ blok }: SponsorsGridProps) => {
           )}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center">
             {logos.map((logo) => (
-              <div key={logo.id} className="relative h-20 grayscale hover:grayscale-0 transition-all">
+              <div key={logo.id} className="relative h-32">
                 <Image
                   src={logo.filename}
                   alt={logo.alt || "Sponsor"}
