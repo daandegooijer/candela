@@ -21,7 +21,7 @@ const TextImage = ({ blok }: { blok: any }) => {
   } font-bold mb-6`;
 
   const imageComponent = image?.filename && (
-    <div className="relative w-full h-96 md:h-full rounded-xl overflow-hidden">
+    <div className="relative w-full h-[32rem] md:h-full rounded-xl overflow-hidden">
       <Image
         src={image.filename}
         alt={image.alt || ""}
