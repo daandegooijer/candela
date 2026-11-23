@@ -17,7 +17,7 @@ export function Header({
 
   return (
     <nav className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 xl:col-span-10 xl:col-start-2">
             {" "}
