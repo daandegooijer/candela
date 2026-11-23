@@ -69,12 +69,14 @@ export default async function AgendaPage() {
 
       {/* Render agenda events */}
       <Container classNames="py-24">
-        {sortedEvents.map((event) => (
-          <AgendaTeaser
-            key={event.id}
-            blok={{ name: event.name, ...event.content }}
-          />
-        ))}
+        <div className="flex flex-col gap-6">
+          {sortedEvents.map((event) => (
+            <AgendaTeaser
+              key={event.id}
+              blok={{ name: event.name, ...event.content }}
+            />
+          ))}
+        </div>
       </Container>
     </div>
   );
