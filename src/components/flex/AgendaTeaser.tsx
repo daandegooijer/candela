@@ -41,13 +41,15 @@ const AgendaTeaser = ({ blok }: AgendaTeaserProps) => {
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
         {blok.image?.filename && (
-          <div className="relative h-64 md:col-span-1">
-            <Image
-              src={blok.image.filename}
-              alt={blok.image.alt || blok.name || "Event image"}
-              fill
-              className="object-cover"
-            />
+          <div className="flex items-center bg-gray-100 md:col-span-1">
+            <div className="relative h-64 w-full">
+              <Image
+                src={blok.image.filename}
+                alt={blok.image.alt || blok.name || "Event image"}
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         )}
 
