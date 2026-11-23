@@ -40,7 +40,7 @@ export function Footer({
                 className="flex flex-wrap items-center justify-center md:justify-start gap-8"
               >
                 {sponsorLogos.map((logo) => (
-                  <div key={logo.id} className="relative h-16 w-32">
+                  <div key={logo.id} className="relative h-24 w-48">
                     <Image
                       src={logo.filename}
                       alt={logo.alt || "Sponsor"}

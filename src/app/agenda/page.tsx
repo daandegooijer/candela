@@ -32,11 +32,35 @@ interface Story {
   content?: Record<string, any>;
 }
 
+function sortByNearestDate(events: Story[]): Story[] {
+  const now = Date.now();
+  return [...events].sort((a, b) => {
+    const rawA = a.content?.date;
+    const rawB = b.content?.date;
+    const dateA = rawA ? new Date(rawA.replace(" ", "T")).getTime() : null;
+    const dateB = rawB ? new Date(rawB.replace(" ", "T")).getTime() : null;
+
+    if (dateA === null && dateB === null) return 0;
+    if (dateA === null) return -1;
+    if (dateB === null) return 1;
+
+    const futureA = dateA >= now;
+    const futureB = dateB >= now;
+    if (futureA !== futureB) return futureA ? -1 : 1;
+
+    return dateA - dateB;
+  });
+}
+
 export default async function AgendaPage() {
   const [agendaPage, agendaEvents] = await Promise.all([
     getStoryblokStory("agenda"),
     getStoryblokStoriesByFolder("agenda", true, 50, 1),
   ]);
+
+  const sortedEvents = sortByNearestDate(
+    (agendaEvents.stories as Story[]) || []
+  );
 
   return (
     <div className="page">
@@ -45,7 +69,7 @@ export default async function AgendaPage() {
 
       {/* Render agenda events */}
       <Container classNames="py-24">
-        {(agendaEvents.stories as Story[])?.map((event) => (
+        {sortedEvents.map((event) => (
           <AgendaTeaser
             key={event.id}
             blok={{ name: event.name, ...event.content }}
