@@ -37,16 +37,21 @@ export function Footer({
             {sponsorLogos && sponsorLogos.length > 0 ? (
               <Link
                 href="/sponsoring"
-                className="flex flex-wrap items-center justify-center md:justify-start gap-8"
+                className="flex flex-wrap items-center justify-center md:justify-start gap-4"
               >
                 {sponsorLogos.map((logo) => (
-                  <div key={logo.id} className="relative h-24 w-48">
-                    <Image
-                      src={logo.filename}
-                      alt={logo.alt || "Sponsor"}
-                      fill
-                      className="object-contain"
-                    />
+                  <div
+                    key={logo.id}
+                    className="h-24 w-48 rounded-lg bg-white p-4 shadow-md transition-shadow hover:shadow-lg"
+                  >
+                    <div className="relative h-full w-full">
+                      <Image
+                        src={logo.filename}
+                        alt={logo.alt || "Sponsor"}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
                 ))}
               </Link>
